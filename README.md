@@ -18,9 +18,7 @@ If the spin of this dipole were to be reversed:
 
 the energy of the system would change by:
 
-$$
-\Delta E=-8J
-$$
+<a href="http://www.codecogs.com/eqnedit.php?latex=\Delta&space;E=-8J" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\Delta&space;E=-8J" title="\Delta E=-8J" /></a>
 
 thus creating a new macroscopic state,  state '\\( f' \\)'. Because the change in energy is negative, and we know that energy will be at a minimum for equilibrium, we'll accept the change,  '\\( f = f' \\)': 
 
@@ -28,28 +26,18 @@ we then randomly select another dipole in the system.
 
 ![2D Ising model](media/monte-carlo-ising-5.png)
 
-Again, we calculate the change in energy if this state were to flip '\\( f \rightarrow f' \\)'. In this case the energy is positive, \\( \Delta E=8J \\). This is still a possible state for the system to be in, however improbable. So we calculate the ratio of transition probabilities based on the partition function of the system
+Again, we calculate the change in energy if this state were to flip ' <a href="http://www.codecogs.com/eqnedit.php?latex=\inline&space;f&space;\rightarrow&space;f'" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\inline&space;f&space;\rightarrow&space;f'" title="f \rightarrow f'" /></a> '. In this case the energy is positive, \\( \Delta E=8J \\). This is still a possible state for the system to be in, however improbable. So we calculate the ratio of transition probabilities based on the partition function of the system
 
-$$
-\begin{equation}
-\frac{P(f\rightarrow f')}{P(f' \rightarrow f)}=\frac{e^{-\beta E_{2}}}{e^{-\beta E_{1}}}=e^{-\beta \Delta E}
-\end{equation}
-$$
+<a href="http://www.codecogs.com/eqnedit.php?latex=\frac{P(f\rightarrow&space;f')}{P(f'&space;\rightarrow&space;f)}=\frac{e^{-\beta&space;E_{2}}}{e^{-\beta&space;E_{1}}}=e^{-\beta&space;\Delta&space;E}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\frac{P(f\rightarrow&space;f')}{P(f'&space;\rightarrow&space;f)}=\frac{e^{-\beta&space;E_{2}}}{e^{-\beta&space;E_{1}}}=e^{-\beta&space;\Delta&space;E}" title="\frac{P(f\rightarrow f')}{P(f' \rightarrow f)}=\frac{e^{-\beta E_{2}}}{e^{-\beta E_{1}}}=e^{-\beta \Delta E}" /></a>
 
-We determine this transition by "rolling the dice". If this ratio is greater than a random number, \\( x \\), between 0 and 1 we accept the new state. Otherwise, we reject it, and keep the original state
+We determine this transition by "rolling the dice". If this ratio is greater than a random number, 'x', between 0 and 1 we accept the new state. Otherwise, we reject it, and keep the original state
 
-$$
-f=\left\{\begin{matrix}
-f' & e^{-\beta \Delta E } \geq x \\ 
-f & e^{-\beta \Delta E } <  x
-\end{matrix}\right.
-$$
+<a href="http://www.codecogs.com/eqnedit.php?latex=f=\left\{\begin{matrix}&space;f'&space;&&space;e^{-\beta&space;\Delta&space;E&space;}&space;\geq&space;x&space;\\&space;f&space;&&space;e^{-\beta&space;\Delta&space;E&space;}&space;<&space;x&space;\end{matrix}\right." target="_blank"><img src="http://latex.codecogs.com/gif.latex?f=\left\{\begin{matrix}&space;f'&space;&&space;e^{-\beta&space;\Delta&space;E&space;}&space;\geq&space;x&space;\\&space;f&space;&&space;e^{-\beta&space;\Delta&space;E&space;}&space;<&space;x&space;\end{matrix}\right." title="f=\left\{\begin{matrix} f' & e^{-\beta \Delta E } \geq x \\ f & e^{-\beta \Delta E } < x \end{matrix}\right." /></a>
 
 In terms of computer code, this is all very simple. It's just a 'for loop' with a few 'if' statements. Attached bellow is a basic python script of simulating this model. 
 
-Using the `ising.py` code, this is a simulation of a 150x150 lattice in the high temperature limit, \\( T = 10 \frac{J}{KB} \\). 
+Using the `ising.py` code, this is a simulation of a 150x150 lattice in the high temperature limit, <a href="http://www.codecogs.com/eqnedit.php?latex=\inline&space;T&space;=&space;10&space;\frac{J}{KB}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\inline&space;T&space;=&space;10&space;\frac{J}{KB}" title="T = 10 \frac{J}{KB}" /></a> . 
 with \\( 10^{6} \\) samplings 
-
 
 <video controls>
   <source src="media/highT.webm" type="video/webm">
@@ -57,9 +45,9 @@ with \\( 10^{6} \\) samplings
   Your browser does not support the <code>video</code> element.
 </video>
 
-The system remains highly disordered and the net magnetization \\( \approx  0 \\). 
+The system remains highly disordered and the net magnetization <a href="http://www.codecogs.com/eqnedit.php?latex=\inline&space;\approx&space;0" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\inline&space;\approx&space;0" title="\approx 0" /></a>. 
 
-In comparison, this is the same simulation, but now at a low temperature limit, \\( T = 0.1 \frac {J}{KB} \\). As the simulation progresses the interaction between the spins dominates  and  causes alignment. Distinct phases appear in the model.
+In comparison, this is the same simulation, but now at a low temperature limit, <a href="http://www.codecogs.com/eqnedit.php?latex=\inline&space;T&space;=&space;0.1&space;\frac&space;{J}{KB}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\inline&space;T&space;=&space;0.1&space;\frac&space;{J}{KB}" title="T = 0.1 \frac {J}{KB}" /></a>. As the simulation progresses the interaction between the spins dominates  and  causes alignment. Distinct phases appear in the model.
 
 <video controls>
   <source src="media/lowT.webm" type="video/webm">
@@ -71,11 +59,7 @@ Given enough time, the system will become fully magnetized.
 
 We expect there is some temperature at which this phase transition happens - where the systems goes from being a Ferromagent to a Paramagnet. This temperature was solved for exactly by Lars Onsager in 1944. 
 
-$$
-\begin{equation}
-\frac{K_{b}T_{c}}{J}=\frac{2}{ln(1+\sqrt{2})}\approx 2.269
-\end{equation}
-$$
+<a href="http://www.codecogs.com/eqnedit.php?latex=\frac{K_{b}T_{c}}{J}=\frac{2}{\ln(1&plus;\sqrt{2})}\approx&space;2.269" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\frac{K_{b}T_{c}}{J}=\frac{2}{\ln(1&plus;\sqrt{2})}\approx&space;2.269" title="\frac{K_{b}T_{c}}{J}=\frac{2}{\ln(1+\sqrt{2})}\approx 2.269" /></a>
 
 His solution, although elegant, is immensely complicated. We're going to use the monte carlo method to see the effects that his solution describes. 
 
