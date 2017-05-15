@@ -165,3 +165,5 @@ We've been able to gain a detailed understanding of the behavior of the Ising mo
 As you can see, it has a big effect on the reliability of the results. In practice, these codes are run on enormous super computers for months at a time to generate trusted results.
 
 ![Ising model around the critical temperature](media/monte-carlo-ising-9.png)
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
