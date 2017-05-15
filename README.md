@@ -2,8 +2,6 @@ The Ising Model is a simplified version of a ferromagnet - where the structure o
 
 We start with a macroscopic state, state '\\( f \\)', of the Ising-Ferromagnet; the bottom half of the material is aligned with each microscopic state in spin-up and the top half is aligned with spin-down, with the exception of one dipole who's spin-up - anti-parallel to it's neighbors. 
 
-<img src="http://mathurl.com/5euwuy.png" />
-
 ![Ising model initial state](media/monte-carlo-ising-2.png)
 
 A microscopic state is selected at random. Lets say we land on the state aligned anti-parallel to it's neighbors.
@@ -12,11 +10,7 @@ A microscopic state is selected at random. Lets say we land on the state aligned
 
 The change in energy of the system is dictated by the interaction of a dipole with its neighbors [eq. 1]. 
 
-$$
-\begin{equation}
-\Delta E=-2J\sum_{k}s_{l}s_{k}
-\end{equation}
-$$
+<a href="http://www.codecogs.com/eqnedit.php?latex=\Delta&space;E=-2J&space;\sum_{k}&space;s_{l}&space;s_{k}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\Delta&space;E=-2J&space;\sum_{k}&space;s_{l}&space;s_{k}" title="\Delta E=-2J \sum_{k} s_{l} s_{k}" /></a>
 
 If the spin of this dipole were to be reversed: 
 
