@@ -2,6 +2,8 @@ The Ising Model is a simplified version of a ferromagnet - where the structure o
 
 We start with a macroscopic state, state '\\( f \\)', of the Ising-Ferromagnet; the bottom half of the material is aligned with each microscopic state in spin-up and the top half is aligned with spin-down, with the exception of one dipole who's spin-up - anti-parallel to it's neighbors. 
 
+<img src="http://mathurl.com/5euwuy.png" />
+
 ![Ising model initial state](media/monte-carlo-ising-2.png)
 
 A microscopic state is selected at random. Lets say we land on the state aligned anti-parallel to it's neighbors.
