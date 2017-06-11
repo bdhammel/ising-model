@@ -73,7 +73,7 @@ class IsingLattice:
 
         Return
         """
-        return -self.system[N,M]*(
+        return -2*self.system[N,M]*(
                     self.system[self._bc(N-1), M] 
                     + self.system[self._bc(N+1), M] 
                     + self.system[N, self._bc(M-1)] 
