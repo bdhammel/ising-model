@@ -8,7 +8,7 @@ Running the simulation will output a video of system as it changes through out t
 __Example exicution:__
 
 ~~~python
-import ising
+from ising import IsingLattice
 lattice = IsingLattice(tempature=.50, initial_state="r", size=(100,100))
 lattice.run(video=True)
 ~~~
