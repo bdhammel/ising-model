@@ -5,7 +5,7 @@ The initial conditions of the ising lattice can be specifited by the `tempature`
 
 Running the simulation will output a video of system as it changes through out the run steps.
 
-__Example exicution:__
+__Example execution:__
 
 ~~~python
 from ising import IsingLattice
