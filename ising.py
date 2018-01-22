@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as manimation
 from scipy.misc import factorial
 import io
+from tqdm import tqdm
 
 
 class IsingLattice:
@@ -138,7 +139,7 @@ class IsingLattice:
         fig = plt.figure()
 
         with writer.saving(fig, "ising.mp4", 100):
-            for epoch in range(self._EPOCHS):
+            for epoch in tqdm(range(self._EPOCHS)):
                 # Randomly select a site on the lattice
                 N, M = np.random.randint(0, self.size, 2)
 
@@ -152,14 +153,12 @@ class IsingLattice:
                     self.system[N,M]*=-1
 
                 if epoch % (self._EPOCHS//75) == 0: 
-                    print("Epoch {:.2E} / {:.2E}".format(epoch, self._EPOCHS), end='\t')
-                    print("Percent completed {:.2f}%".format(100*epoch/self._EPOCHS), end='\t')
-                    print("Net Magnetization: {:.2f}".format(self.magnetization))
                     if video:
                         img = plt.imshow(self.system, interpolation='nearest')
                         writer.grab_frame()
                         img.remove()
-            print("...done")
+
+        tqdm.write("Net Magnetization: {:.2f}".format(self.magnetization))
 
         plt.close('all')
 
