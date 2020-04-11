@@ -1,3 +1,5 @@
+[![bdhammel](https://circleci.com/gh/bdhammel/ising-model.svg?style=shield)](https://app.circleci.com/pipelines/github/bdhammel/ising-model)
+
 # Ising Model
 
 Python code to simulate the Ising model of a Ferromagnet.

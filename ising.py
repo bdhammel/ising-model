@@ -34,7 +34,9 @@ class IsingLattice:
         elif initial_state == 'u':
             system = np.ones(self.sqr_size)
         else:
-            raise ValueError("Initial State must be 'r', random, or 'u', uniform")
+            raise ValueError(
+                "Initial State must be 'r', random, or 'u', uniform"
+            )
 
         return system
 
@@ -82,8 +84,8 @@ class IsingLattice:
             energy of the site
         """
         return -2*self.system[N, M]*(
-            self.system[self._bc(N - 1), M] + self.system[self._bc(N + 1), M] + self.system[N, self._bc(M - 1)]
-            + self.system[N, self._bc(M + 1)]
+            self.system[self._bc(N - 1), M] + self.system[self._bc(N + 1), M]
+            + self.system[N, self._bc(M - 1)] + self.system[N, self._bc(M + 1)]
         )
 
     @property
@@ -138,8 +140,10 @@ def run(lattice, epochs, video=True):
             elif np.exp(-E/lattice.T) > np.random.rand():
                 lattice.system[N, M] *= -1
 
-            if video and epoch % (epochs // 75) == 0:
-                img = plt.imshow(lattice.system, interpolation='nearest', cmap='jet')
+            if video and epoch % (epochs//75) == 0:
+                img = plt.imshow(
+                    lattice.system, interpolation='nearest', cmap='jet'
+                )
                 writer.grab_frame()
                 img.remove()
 
@@ -147,15 +151,41 @@ def run(lattice, epochs, video=True):
 
 
 @click.command()
-@click.option('--temperature', '-t', default=0.5, show_default=True, help='temperature of the system')
-@click.option('--initial-state', '-i', default='r', type=click.Choice(['r', 'u'], case_sensitive=False),
-              show_default=True, help='(R)andom or (U)niform initial state of the system')
-@click.option('--size', '-s', default=100, show_default=True, help='Number of sites, M, in the MxM lattice')
-@click.option('--epochs', '-e', default=1_000_000, type=int, show_default=True,
-              help='Number of iterations to run the simulation for')
-@click.option('--video', is_flag=True, help='Record a video of the simulation progression')
+@click.option(
+    '--temperature', '-t',
+    default=0.5,
+    show_default=True,
+    help='temperature of the system'
+)
+@click.option(
+    '--initial-state', '-i',
+    default='r',
+    type=click.Choice(['r', 'u'], case_sensitive=False),
+    show_default=True,
+    help='(R)andom or (U)niform initial state of the system'
+)
+@click.option(
+    '--size', '-s',
+    default=100,
+    show_default=True,
+    help='Number of sites, M, in the MxM lattice'
+)
+@click.option(
+    '--epochs', '-e',
+    default=1_000_000,
+    type=int,
+    show_default=True,
+    help='Number of iterations to run the simulation for'
+)
+@click.option(
+    '--video',
+    is_flag=True,
+    help='Record a video of the simulation progression'
+)
 def main(temperature, initial_state, size, epochs, video):
-    lattice = IsingLattice(temperature=temperature, initial_state=initial_state, size=size)
+    lattice = IsingLattice(
+        temperature=temperature, initial_state=initial_state, size=size
+    )
     run(lattice, epochs, video)
 
     print(f"{'Net Magnetization [%]:':.<25}{lattice.magnetization:.2f}")
