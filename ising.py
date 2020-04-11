@@ -56,9 +56,9 @@ class IsingLattice:
         int
             corrected lattice site coordinate
         """
-        if i + 1 > self.size - 1:
+        if i >= self.size:
             return 0
-        if i - 1 < 0:
+        if i < 0:
             return self.size - 1
         else:
             return i
